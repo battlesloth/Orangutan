@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef, Input, ViewEncapsulation, OnDestroy } from '@angular/core';
-import { ModalService } from 'src/app/services/modal/modal.service';
+import { ModalService } from './modal.service';
 
 @Component({
   selector: 'orang-modal',
@@ -19,7 +19,7 @@ export class ModalComponent implements OnInit {
   ngOnInit(): void {
 
     //ensure id exists
-    if (!this.id && this.id !== ''){
+    if (!this.id || this.id === ''){
       console.error('modal must have an id');
       return;
     }
@@ -28,11 +28,29 @@ export class ModalComponent implements OnInit {
     document.body.appendChild(this.element);
 
     // close on background click
-    this.element.addEventListener('click', el =>{
-      if (el.target.classNname){
+    this.element.addEventListener('click', (el : any) =>{
+      if (el.target.className === 'orang-modal'){
         this.close();
       }
-    })
+    });
+
+    this.modalService.add(this);
+  }
+
+  ngOnDestroy(): void {
+    this.modalService.remove(this.id);
+    this.element.remove();
+  }
+
+  open(): void {
+    this.element.style.display = 'block';
+    let test = this.element.id;
+    document.body.classList.add('orang-modal-open');
+  }
+
+  close() {
+     this.element.style.display = 'none';
+     document.body.classList.remove('orang-modal-open');
   }
 
 }

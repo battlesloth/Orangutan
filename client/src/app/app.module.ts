@@ -10,7 +10,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LibraryComponent } from './pages/library/library.component';
-import { ModalComponent } from './shared/modal/modal.component';
+import { ModalModule } from './shared/modal';
 
 @NgModule({
   declarations: [
@@ -19,14 +19,14 @@ import { ModalComponent } from './shared/modal/modal.component';
     ProfileComponent,
     LoginComponent,
     HomeComponent,
-    LibraryComponent,
-    ModalComponent
+    LibraryComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ModalModule
   ],
   providers: [],
   bootstrap: [AppComponent]

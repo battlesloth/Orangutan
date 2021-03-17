@@ -1,3 +1,16 @@
 <div class="page">
-<h1>Library</h1>
+    <h1>Library</h1>
+    <button (click)="openModal('custom-modal-1')">Open Modal 1</button>
+    <button (click)="openModal('custom-modal-2')">Open Modal 2</button>
 </div>
+
+<orang-modal id="custom-modal-1" style="display: none;" >
+    <h1>A Custom Modal Window!</h1>
+    <p>Home page text: <input type="text" [(ngModel)]="bodyText" /></p>
+    <button (click)="closeModal('custom-modal-1');">Close</button>
+</orang-modal>
+
+<orang-modal id="custom-modal-2" style="display: none;" >
+    <h1 style="height:1000px">A Tall Custom Modal Window!</h1>
+    <button (click)="closeModal('custom-modal-2');">Close</button>
+</orang-modal>
