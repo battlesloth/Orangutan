@@ -2,12 +2,13 @@
   <div class="navbar-main">
     <div class="navbar-left">
       <ul class="nav navbar-nav">
-        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/">Orangutan</a></li>
       </ul>
     </div>
     <div class="navbar-divider"></div>
     <div class="navbar-right">
       <ul class="nav navbar-nav navbar-right">
+        <li *ngIf="auth.isLoggedIn()"><a routerLink="/library">Library</a></li>
         <li *ngIf="!auth.isLoggedIn()"><a routerLink="/login">Sign in</a></li>
         <li *ngIf="auth.isLoggedIn()">
           <a routerLink="/profile">{{ auth.getUserDetails()?.name | titlecase }}</a>

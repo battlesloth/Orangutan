@@ -1,23 +1,18 @@
-<form (submit)="login()">
+<div class="form-container">
+  <div class="form-border"></div>
+  <form (submit)="login()">
     <div class="form-group">
       <label for="email">Email address</label>
-      <input
-        type="email"
-        class="form-control"
-        name="email"
-        placeholder="Enter email"
-        [(ngModel)]="credentials.email"
-      />
+      <input type="email" class="form-control" name="email" placeholder="Enter email" [(ngModel)]="credentials.email" />
     </div>
     <div class="form-group">
       <label for="password">Password</label>
-      <input
-        type="password"
-        class="form-control"
-        name="password"
-        placeholder="Password"
-        [(ngModel)]="credentials.password"
-      />
+      <input type="password" class="form-control" name="password" placeholder="Password"
+        [(ngModel)]="credentials.password" />
     </div>
-    <button type="submit" class="btn btn-default">Sign in!</button>
+    <div class="form-button">
+      <button type="submit" class="btn btn-default">Sign in!</button>
+    </div>
   </form>
+  <div class="form-border"></div>
+</div>
